@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Cinéfilos Anónimos - Películas de Culto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Movies Grid */
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        /* Movie Card */
+        .movie-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border-color: #667eea;
+        }
+
+        .movie-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .movie-info {
+            padding: 2rem;
+        }
+
+        .movie-title {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .movie-year {
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .movie-director {
+            color: #ccc;
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .movie-description {
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .cult-score {
+            background: #2d2d2d;
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #444;
+        }
+
+        .cult-score span {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer p {
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .movies-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>🎬 Cinéfilos Anónimos</h1>
+            <p>Descubre las películas de culto que marcaron generaciones</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="movies-grid" id="moviesGrid">
+            <!-- Las películas se cargan con JavaScript -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Cinéfilos Anónimos - Todas las películas son de culto</p>
+        </div>
+    </footer>
+
+    <script>
+        // Datos de las películas
+        const movies = [
+            {
+                id: 1,
+                title: "The Rocky Horror Picture Show",
+                year: 1975,
+                director: "Jim Sharman",
+                description: "Una pareja se encuentra en una lluviosa noche en el castillo del extravagante Dr. Frank-N-Furter, donde descubren un mundo de locura, música y travestismo.",
+                emoji: "👠",
+                cultScore: 10
+            },
+            {
+                id: 2,
+                title: "Blade Runner",
+                year: 1982,
+                director: "Ridley Scott",
+                description: "En un futuro distópico de Los Ángeles, un cazador de replicantes debe retirar a cuatro androides fugados.",
+                emoji: "🔍",
+                cultScore: 9
+            },
+            {
+                id: 3,
+                title: "The Big Lebowski",
+                year: 1998,
+                director: "Coen Brothers",
+                description: "Jeffrey 'The Dude' Lebowski, un despreocupado fumador de marihuana, se ve envuelto en una complicada trama de secuestro.",
+                emoji: "🎳",
+                cultScore: 9
+            },
+            {
+                id: 4,
+                title: "Donnie Darko",
+                year: 2001,
+                director: "Richard Kelly",
+                description: "Un adolescente perturbado recibe visiones de un conejo gigante que lo manipula para cometer una serie de crímenes.",
+                emoji: "🐰",
+                cultScore: 8
+            },
+            {
+                id: 5,
+                title: "Fight Club",
+                year: 1999,
+                director: "David Fincher",
+                description: "Un hombre insomne y un fabricante de jabón forman un club de lucha clandestino que evoluciona hacia algo mucho más grande.",
+                emoji: "👊",
+                cultScore: 10
+            },
+            {
+                id: 6,
+                title: "A Clockwork Orange",
+                year: 1971,
+                director: "Stanley Kubrick",
+                description: "Alex y sus drugos aterrorizan la ciudad en un futuro distópico, hasta que es capturado y sometido a un tratamiento de aversión.",
+                emoji: "🥛",
+                cultScore: 9
+            }
+        ];
+
+        // Función para crear las tarjetas de películas
+        function renderMovies() {
+            const moviesGrid = document.getElementById('moviesGrid');
+            
+            movies.forEach(movie => {
+                const movieCard = document.createElement('div');
+                movieCard.className = 'movie-card';
+                
+                movieCard.innerHTML = `
+                    <div class="movie-image">
+                        ${movie.emoji}
+                    </div>
+                    <div class="movie-info">
+                        <h3 class="movie-title">${movie.title}</h3>
+                        <p class="movie-year">Año: ${movie.year}</p>
+                        <p class="movie-director">Director: ${movie.director}</p>
+                        <p class="movie-description">${movie.description}</p>
+                        <div class="cult-score">
+                            <span>⭐ Puntuación Culto: ${movie.cultScore}/10</span>
+                        </div>
+                    </div>
+                `;
+                
+                moviesGrid.appendChild(movieCard);
+            });
+        }
+
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMovies();
+            console.log('🎬 Página de películas de culto cargada correctamente!');
+        });
+    </script>
+</body>
+</html>
